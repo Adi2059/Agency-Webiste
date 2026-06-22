@@ -12,7 +12,9 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-
+app.get('/', (req, res) => {
+  res.send('AfterUS API is running perfectly on Render! 🚀');
+});
 // Routes ko use karna
 app.use('/api/auth', authRoutes);
 app.use('/api/leads', leadRoutes); // Naya API endpoint
