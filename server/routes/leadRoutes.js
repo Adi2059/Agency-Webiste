@@ -245,7 +245,7 @@ router.post('/docs/upload', protect, upload.single('pdfFile'), async (req, res) 
       fileSize: sizeInMb,
       uploadedBy: req.user.name,
       // Download link me server ka path save hoga
-      downloadUrl: `http://localhost:5000/uploads/${req.file.filename}` 
+      downloadUrl: `https://agency-webiste-akqm.onrender.com//uploads/${req.file.filename}` 
     });
 
     await newDoc.save();
