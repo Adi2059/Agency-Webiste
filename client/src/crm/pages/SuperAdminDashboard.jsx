@@ -54,10 +54,10 @@ const SuperAdminDashboard = () => {
       const headers = { Authorization: `Bearer ${token}` };
       
       const [dashRes, teamRes, allLeadsRes, docsRes] = await Promise.all([
-        axios.get('https://agency-webiste-akqm.onrender.com//api/leads/dashboard-data', { headers }),
-        axios.get('https://agency-webiste-akqm.onrender.com//api/leads/team', { headers }),
-        axios.get('https://agency-webiste-akqm.onrender.com//api/leads/all', { headers }),
-        axios.get('https://agency-webiste-akqm.onrender.com//api/leads/docs/all', { headers })
+        axios.get('https://agency-webiste-akqm.onrender.com/api/leads/dashboard-data', { headers }),
+        axios.get('https://agency-webiste-akqm.onrender.com/api/leads/team', { headers }),
+        axios.get('https://agency-webiste-akqm.onrender.com/api/leads/all', { headers }),
+        axios.get('https://agency-webiste-akqm.onrender.com/api/leads/docs/all', { headers })
       ]);
       
       setDashboardData(dashRes.data);
@@ -96,7 +96,7 @@ const SuperAdminDashboard = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await axios.post('https://agency-webiste-akqm.onrender.com//api/leads/add', formData);
+      await axios.post('https://agency-webiste-akqm.onrender.com/api/leads/add', formData);
       setIsModalOpen(false);
       setFormData({ clientName: '', phoneNumber: '', serviceNeeded: 'Starter Package' });
       fetchData();
@@ -126,7 +126,7 @@ const SuperAdminDashboard = () => {
     if (!window.confirm("Are you sure you want to delete this lead?")) return;
     try {
       const token = localStorage.getItem('afterus_token');
-      await axios.delete(`https://agency-webiste-akqm.onrender.com//api/leads/delete/${id}`, {
+      await axios.delete(`https://agency-webiste-akqm.onrender.com/api/leads/delete/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchData();
@@ -143,7 +143,7 @@ const SuperAdminDashboard = () => {
       const token = localStorage.getItem('afterus_token');
       // Ek sath sabhi selected IDs ko delete API par bhejna
       await Promise.all(selectedLeads.map(id => 
-        axios.delete(`https://agency-webiste-akqm.onrender.com//api/leads/delete/${id}`, {
+        axios.delete(`https://agency-webiste-akqm.onrender.com/api/leads/delete/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         })
       ));
@@ -188,7 +188,7 @@ const SuperAdminDashboard = () => {
       setLoading(true);
       try {
         const token = localStorage.getItem('afterus_token');
-        const res = await axios.post('https://agency-webiste-akqm.onrender.com//api/leads/bulk-add', 
+        const res = await axios.post('https://agency-webiste-akqm.onrender.com/api/leads/bulk-add', 
           { leads: leadsArray }, { headers: { Authorization: `Bearer ${token}` } }
         );
         alert(res.data.message);
@@ -208,14 +208,14 @@ const SuperAdminDashboard = () => {
 
     try {
       if (isEditingTeam) {
-       await axios.put(`https://agency-webiste-akqm.onrender.com//api/leads/team/edit/${teamFormData.id}`, {
+       await axios.put(`https://agency-webiste-akqm.onrender.com/api/leads/team/edit/${teamFormData.id}`, {
           name: teamFormData.name, 
           email: teamFormData.email, 
           role: teamFormData.role,
           password: teamFormData.password // Naya password backend ko bhejna
         }, { headers });
       } else {
-        await axios.post('https://agency-webiste-akqm.onrender.com//api/leads/team/add', teamFormData, { headers });
+        await axios.post('https://agency-webiste-akqm.onrender.com/api/leads/team/add', teamFormData, { headers });
       }
       setIsTeamModalOpen(false);
       fetchData();
@@ -247,7 +247,7 @@ const SuperAdminDashboard = () => {
     uploadData.append('title', pdfTitle || selectedFile.name); 
 
     try {
-      await axios.post('https://agency-webiste-akqm.onrender.com//api/leads/docs/upload', uploadData, {
+      await axios.post('https://agency-webiste-akqm.onrender.com/api/leads/docs/upload', uploadData, {
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' }
       });
       alert('📁 Document added to Company Vault!');

@@ -58,8 +58,8 @@ const CofounderDashboard = () => {
       const token = localStorage.getItem('afterus_token');
       const headers = { Authorization: `Bearer ${token}` };
       const [leadsRes, docsRes] = await Promise.all([
-        axios.get('https://agency-webiste-akqm.onrender.com//api/leads/all', { headers }),
-        axios.get('https://agency-webiste-akqm.onrender.com//api/leads/docs/all', { headers })
+        axios.get('https://agency-webiste-akqm.onrender.com/api/leads/all', { headers }),
+        axios.get('https://agency-webiste-akqm.onrender.com/api/leads/docs/all', { headers })
       ]);
       setLeads(leadsRes.data);
       setCompanyDocs(docsRes.data);
@@ -98,7 +98,7 @@ const CofounderDashboard = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await axios.put(`https://agency-webiste-akqm.onrender.com//api/leads/update-status/${dealToClose._id}`, {
+      await axios.put(`https://agency-webiste-akqm.onrender.com/api/leads/update-status/${dealToClose._id}`, {
         status: 'Closed',
         totalDealValue: paymentData.totalAmount,
         paymentReceived: paymentData.receivedAmount
@@ -112,7 +112,7 @@ const CofounderDashboard = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await axios.put(`https://agency-webiste-akqm.onrender.com//api/leads/update-status/${dealToEdit._id}`, {
+      await axios.put(`https://agency-webiste-akqm.onrender.com/api/leads/update-status/${dealToEdit._id}`, {
         status: 'Closed', totalDealValue: editPaymentData.totalAmount, paymentReceived: editPaymentData.receivedAmount
       }, { headers: { Authorization: `Bearer ${localStorage.getItem('afterus_token')}` } });
       showNotification(`✅ Ledger updated for ${dealToEdit.clientName}`);
@@ -125,7 +125,7 @@ const CofounderDashboard = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await axios.put(`https://agency-webiste-akqm.onrender.com//api/leads/update-status/${projectToEdit._id}`, {
+      await axios.put(`https://agency-webiste-akqm.onrender.com/api/leads/update-status/${projectToEdit._id}`, {
         projectPhase: projectData.phase,
         projectProgress: projectData.progress
       }, { headers: { Authorization: `Bearer ${localStorage.getItem('afterus_token')}` } });
@@ -137,7 +137,7 @@ const CofounderDashboard = () => {
   const handleRemoveDeal = async (id) => {
     if(!window.confirm("Are you sure you want to permanently delete this deal from the ledger?")) return;
     try {
-      await axios.delete(`https://agency-webiste-akqm.onrender.com//api/leads/delete/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem('afterus_token')}` }});
+      await axios.delete(`https://agency-webiste-akqm.onrender.com/api/leads/delete/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem('afterus_token')}` }});
       showNotification('🗑️ Deal permanently removed from ledger!');
       setIsEditPaymentModalOpen(false); setDealToEdit(null); fetchData();
     } catch (error) {}
@@ -152,7 +152,7 @@ const CofounderDashboard = () => {
     uploadData.append('pdfFile', selectedFile);
     uploadData.append('title', pdfTitle || selectedFile.name); 
     try {
-      await axios.post('https://agency-webiste-akqm.onrender.com//api/leads/docs/upload', uploadData, {
+      await axios.post('https://agency-webiste-akqm.onrender.com/api/leads/docs/upload', uploadData, {
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' }
       });
       showNotification('📁 Document synced to Vault!');
@@ -165,7 +165,7 @@ const CofounderDashboard = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await axios.post('https://agency-webiste-akqm.onrender.com//api/leads/add', formData);
+      await axios.post('https://agency-webiste-akqm.onrender.com/api/leads/add', formData);
       setIsModalOpen(false);
       setFormData({ clientName: '', phoneNumber: '', serviceNeeded: 'Starter Package' });
       showNotification('✅ Opportunity injected successfully!');
@@ -196,7 +196,7 @@ const CofounderDashboard = () => {
       setLoading(true);
       try {
         const token = localStorage.getItem('afterus_token');
-        const res = await axios.post('https://agency-webiste-akqm.onrender.com//api/leads/bulk-add', { leads: leadsArray }, { headers: { Authorization: `Bearer ${token}` } });
+        const res = await axios.post('https://agency-webiste-akqm.onrender.com/api/leads/bulk-add', { leads: leadsArray }, { headers: { Authorization: `Bearer ${token}` } });
         showNotification(`🚀 ${res.data.message}`);
         setCurrentPage(1); fetchData(); 
       } catch (err) { alert("Failed to bulk upload."); } finally { setLoading(false); e.target.value = ''; }
