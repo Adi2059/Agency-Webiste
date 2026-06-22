@@ -45,7 +45,7 @@ app.get('/api/create-default-users', async (req, res) => {
         name: 'Dilkhush Tiwari', 
         email: 'dilkhush@afterus.com', 
         password: hashedPassword, 
-        role: 'cofounder' 
+        role: 'co-founder' 
       },
       { 
         name: 'Outreach Team', 

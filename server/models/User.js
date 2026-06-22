@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
   role: { 
     type: String, 
     // 👇 YAHAN HUMNE NAYE ROLES ADD KIYE HAIN ('admin', 'editor') 👇
-    enum: ['superadmin', 'admin', 'telecaller', 'editor'], 
+    enum: ['superadmin', 'admin', 'telecaller', 'editor' , 'co-founder'], 
     default: 'telecaller' 
   },
   isActive: { type: Boolean, default: true }
