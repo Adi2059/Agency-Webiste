@@ -159,7 +159,7 @@ const LinkedinIcon = ({ size = 24, className = "" }) => (
       e.preventDefault();
       setFormState('submitting');
       try {
-        await axios.post('http://localhost:5000/api/leads/add', formData);
+        await axios.post('https://agency-webiste-akqm.onrender.com//api/leads/add', formData);
         setFormState('success');
       } catch (error) {
         console.error("Error submitting form", error);
@@ -692,7 +692,7 @@ const LinkedinIcon = ({ size = 24, className = "" }) => (
       e.preventDefault();
       setFormState('submitting');
       try {
-        await axios.post('http://localhost:5000/api/leads/add', {
+        await axios.post('https://agency-webiste-akqm.onrender.com//api/leads/add', {
             clientName: formData.clientName,
             phoneNumber: formData.phoneNumber,
             serviceNeeded: selectedService

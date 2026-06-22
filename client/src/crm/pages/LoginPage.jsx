@@ -16,7 +16,7 @@ const LoginPage = () => {
 
     try {
       // Backend Login API call
-      const res = await axios.post('http://localhost:5000/api/auth/login', {
+      const res = await axios.post('https://agency-webiste-akqm.onrender.com//api/auth/login', {
         email: formData.email,
         password: formData.password
       });

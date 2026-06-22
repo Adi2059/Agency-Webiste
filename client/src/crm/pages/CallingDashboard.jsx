@@ -126,7 +126,7 @@ const CallingDashboard = () => {
 
   const fetchLeads = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/leads/calling-leads', {
+      const res = await axios.get('https://agency-webiste-akqm.onrender.com//api/leads/calling-leads', {
         headers: { Authorization: `Bearer ${localStorage.getItem('afterus_token')}` }
       });
       setLeads(res.data);
@@ -146,7 +146,7 @@ const CallingDashboard = () => {
     if (!selectedLead) return;
     setActionLoading(true);
     try {
-      await axios.put(`http://localhost:5000/api/leads/update-status/${selectedLead._id}`, {
+      await axios.put(`https://agency-webiste-akqm.onrender.com//api/leads/update-status/${selectedLead._id}`, {
         status, ...extraData
       }, { headers: { Authorization: `Bearer ${localStorage.getItem('afterus_token')}` } });
       
