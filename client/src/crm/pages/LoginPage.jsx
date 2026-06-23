@@ -21,11 +21,16 @@ const LoginPage = () => {
         password: formData.password
       });
 
-      // 🔥 ASLI IDENTITY SAVE KARO (Bina override kiye) 🔥
-      localStorage.setItem('afterus_token', res.data.token);
-      localStorage.setItem('afterus_user', JSON.stringify(res.data.user));
+      // 🔥 SMART DATA EXTRACTION 🔥
+      // Agar backend { token, user: {...} } bhejta hai, toh res.data.user uthayega
+      // Agar backend seedha { token, role, email } bhejta hai, toh res.data uthayega
+      const userData = res.data.user || res.data; 
 
-      const realRole = res.data.user.role; // Database se aaya hua exact role
+      localStorage.setItem('afterus_token', res.data.token);
+      localStorage.setItem('afterus_user', JSON.stringify(userData));
+
+      // Optional chaining (?) lagai hai taaki agar role na mile toh app crash na ho
+      const realRole = userData?.role; 
 
       // 🔥 REAL ROLE-BASED DYNAMIC REDIRECTION 🔥
       if (realRole === 'superadmin' || realRole === 'admin') {
@@ -38,7 +43,7 @@ const LoginPage = () => {
 
     } catch (err) {
       console.error(err);
-      setError(err.response?.data?.error || 'Invalid credentials or connection timeout.');
+      setError(err.response?.data?.error || err.response?.data?.message || 'Invalid credentials or connection timeout.');
     } finally {
       setLoading(false);
     }
