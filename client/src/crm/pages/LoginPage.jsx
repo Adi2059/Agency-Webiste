@@ -23,7 +23,7 @@ const LoginPage = () => {
 
       // Token aur user details save karna
       localStorage.setItem('afterus_token', res.data.token);
-      
+      localStorage.setItem('afterus_user', JSON.stringify(res.data.user));
       // Override role based on selection if needed for custom dynamic routing
       const loggedInUser = {
         ...res.data.user,
