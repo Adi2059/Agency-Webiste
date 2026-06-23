@@ -21,23 +21,19 @@ const LoginPage = () => {
         password: formData.password
       });
 
-      // Token aur user details save karna
+      // 🔥 ASLI IDENTITY SAVE KARO (Bina override kiye) 🔥
       localStorage.setItem('afterus_token', res.data.token);
       localStorage.setItem('afterus_user', JSON.stringify(res.data.user));
-      // Override role based on selection if needed for custom dynamic routing
-      const loggedInUser = {
-        ...res.data.user,
-        role: formData.role // Toggled role form user choice
-      };
-      localStorage.setItem('afterus_user', JSON.stringify(loggedInUser));
 
-      // 🔥 ROLE-BASED DYNAMIC REDIRECTION 🔥
-      if (formData.role === 'superadmin') {
+      const realRole = res.data.user.role; // Database se aaya hua exact role
+
+      // 🔥 REAL ROLE-BASED DYNAMIC REDIRECTION 🔥
+      if (realRole === 'superadmin' || realRole === 'admin') {
         navigate('/dashboard');
-      } else if (formData.role === 'admin' || formData.role === 'editor') {
-        navigate('/cofounder-dashboard'); // Co-founder Center link
+      } else if (realRole === 'co-founder' || realRole === 'cofounder') {
+        navigate('/cofounder-dashboard');
       } else {
-        navigate('/calling-dashboard'); // Outreach girl link
+        navigate('/calling-dashboard');
       }
 
     } catch (err) {
@@ -73,7 +69,7 @@ const LoginPage = () => {
 
         <form onSubmit={handleSubmit} className="space-y-5">
           
-          {/* 🔥 MNC GRADE ROLE SELECTOR 🔥 */}
+          {/* 🔥 MNC GRADE ROLE SELECTOR (Now just for visual preference) 🔥 */}
           <div>
             <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Select Access Node</label>
             <div className="relative">
