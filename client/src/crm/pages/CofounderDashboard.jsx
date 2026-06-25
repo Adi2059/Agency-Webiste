@@ -181,7 +181,8 @@ const CofounderDashboard = () => {
       const text = event.target.result;
       const lines = text.split('\n');
       const leadsArray = [];
-      for (let i = 1; i < lines.length; i++) {
+      // Isme humne check laga diya ki columns[1] (yaani phone number) bhi khaali nahi hona chahiye
+if (columns.length >= 2 && columns[0].trim() !== '' && columns[1] && columns[1].trim() !== '') {
         const line = lines[i].trim();
         if (!line) continue; 
         const columns = line.split(',');
