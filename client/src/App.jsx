@@ -499,7 +499,7 @@ const LinkedinIcon = ({ size = 24, className = "" }) => (
               <div className="w-40 h-40 rounded-full bg-slate-800 mb-6 border-4 border-[#0A1128] shadow-xl overflow-hidden relative">
                 <img src="/assets/Aditya.jpg" alt="Aditya Thakur" className="w-full h-fit object-cover grayscale group-hover:grayscale-0 transition-all duration-500 bg-slate-700" />
               </div>
-              <h3 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-2">Co-Founder & Tech Lead</h3>
+              <h3 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-2">Founder & Lead person</h3>
               <h2 className="text-3xl font-black text-white mb-6">Aditya Thakur</h2>
               <div className="flex gap-4">
                 <a href="#" className="w-10 h-10 rounded-full bg-blue-900/30 flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white transition-all"><LinkedinIcon size={18} /></a>
@@ -514,7 +514,7 @@ const LinkedinIcon = ({ size = 24, className = "" }) => (
               <div className="w-40 h-40 rounded-full bg-slate-800 mb-6 border-4 border-[#0A1128] shadow-xl overflow-hidden relative">
                 <img src="/assets/Dilkhush.jpeg" alt="Dilkhush Tiwari" className="w-full h-fit object-cover grayscale group-hover:grayscale-0 transition-all duration-500 bg-slate-700" />
               </div>
-              <h3 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-2">Co-Founder & Creative Lead</h3>
+              <h3 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-2">Co-Founder & Tech Lead</h3>
               <h2 className="text-3xl font-black text-white mb-6">Dilkhush Tiwari</h2>
               <div className="flex gap-4">
                 <a href="#" className="w-10 h-10 rounded-full bg-blue-900/30 flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white transition-all"><LinkedinIcon size={18} /></a>
