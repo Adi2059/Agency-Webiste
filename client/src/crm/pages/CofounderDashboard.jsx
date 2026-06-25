@@ -181,14 +181,17 @@ const CofounderDashboard = () => {
       const text = event.target.result;
       const lines = text.split('\n');
       const leadsArray = [];
-      // Isme humne check laga diya ki columns[1] (yaani phone number) bhi khaali nahi hona chahiye
-if (columns.length >= 2 && columns[0].trim() !== '' && columns[1] && columns[1].trim() !== '') {
+ for (let i = 1; i < lines.length; i++) {
         const line = lines[i].trim();
         if (!line) continue; 
+        
         const columns = line.split(',');
-        if (columns.length >= 2 && columns[0].trim() !== '') {
+        
+        // 🔥 Yahan laga hai Sahi Check (Name aur Phone dono check honge) 🔥
+        if (columns.length >= 2 && columns[0] && columns[0].trim() !== '' && columns[1] && columns[1].trim() !== '') {
           leadsArray.push({
-            clientName: columns[0].trim(), phoneNumber: columns[1].trim(),
+            clientName: columns[0].trim(), 
+            phoneNumber: columns[1].trim(),
             serviceNeeded: columns[2] ? columns[2].trim() : 'Starter Package' 
           });
         }
