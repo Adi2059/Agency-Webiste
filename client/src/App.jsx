@@ -606,20 +606,20 @@ const LinkedinIcon = ({ size = 24, className = "" }) => (
             <div className="flex text-yellow-400 mb-4">
               <Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" />
             </div>
-            <p className="text-slate-700 italic mb-6 leading-relaxed">"AfterUS completely transformed our digital presence. The custom E-Commerce platform they built increased our conversions by 150% within the first month. Highly recommended!"</p>
+            <p className="text-slate-700 italic mb-6 leading-relaxed">"AfterUS completely transformed our digital presence. The custom Studio Auto Pilot platform they built increased our conversions by 150% within the first month. Highly recommended!"</p>
             <div>
-              <h4 className="font-bold text-slate-900">Rahul Sharma</h4>
-              <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Founder, AcmeCorp</p>
+              <h4 className="font-bold text-slate-900">Ravish Kumar</h4>
+              <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Owner , ARK studio patna</p>
             </div>
           </div>
           <div className="bg-slate-50 p-8 rounded-3xl border border-gray-100 shadow-sm relative hover:-translate-y-1 transition-transform">
             <div className="flex text-yellow-400 mb-4">
               <Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" /><Star size={18} fill="currentColor" />
             </div>
-            <p className="text-slate-700 italic mb-6 leading-relaxed">"Their team doesn't just build websites; they build businesses. The social media growth strategy was spot on, and the cinematic reels went viral almost instantly."</p>
+            <p className="text-slate-700 italic mb-6 leading-relaxed">"Their team doesn't just build websites; they build businesses. Mainly their Edu-Suite for coachings and schools is really great to automate our students Database"</p>
             <div>
-              <h4 className="font-bold text-slate-900">Priya Verma</h4>
-              <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Marketing Director, Vertex</p>
+              <h4 className="font-bold text-slate-900">DK mishra</h4>
+              <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Math's Hub Classes , Agra</p>
             </div>
           </div>
           <div className="bg-slate-50 p-8 rounded-3xl border border-gray-100 shadow-sm relative hover:-translate-y-1 transition-transform">
@@ -628,8 +628,8 @@ const LinkedinIcon = ({ size = 24, className = "" }) => (
             </div>
             <p className="text-slate-700 italic mb-6 leading-relaxed">"Working directly with the founders made a huge difference. No miscommunication, fast delivery, and an admin panel that makes managing our EdTech app a breeze."</p>
             <div>
-              <h4 className="font-bold text-slate-900">Aman Gupta</h4>
-              <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">CEO, Elevate EdTech</p>
+              <h4 className="font-bold text-slate-900">Saurav Kumar</h4>
+              <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Startup Founder A TO Z Educaation </p>
             </div>
           </div>
         </div>
